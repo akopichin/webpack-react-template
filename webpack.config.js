@@ -48,6 +48,11 @@ module.exports = {
 				}
 			},
             {
+                test: /\.tsx?$/,
+                loader: "ts-loader",
+                exclude: /node_modules/
+            },
+            {
                 test:   /\.(png|jpg|svg|ttf|eot|woff|woff2)$/,
                 loader: 'file-loader?name=[path][name].[ext]'
             },
@@ -64,7 +69,7 @@ module.exports = {
 
     resolve: {
         modulesDirectories: ['node_modules'],
-        extensions:         ['', '.js']
+        extensions:         ['', '.js', '.jsx', '.ts', '.tsx']
     }
 }
 
