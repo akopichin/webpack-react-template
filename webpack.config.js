@@ -13,7 +13,7 @@ module.exports = {
 	context: path.resolve(__dirname, 'src'),
 
 	entry: {
-		'app': ['./app/app', './styles/app.scss']
+		'app': ['babel-polyfill', './app/app', './styles/app.scss']
 	},
 
 	output: {
