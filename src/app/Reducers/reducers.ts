@@ -1,7 +1,7 @@
 /**
  * Reducers
  */
-import {LOAD_ITEMS} from '../Actions/actionTypes';
+import {LOAD_ITEMS, SET_FILTER} from '../Actions/actionTypes';
 import {IItem} from '../Models'
 import {EItemsFilter} from '../Models/EItemsFilter';
 
@@ -23,8 +23,8 @@ function filter (state:EItemsFilter, action) {
         state = EItemsFilter.ALL;
     }
     switch (action.type) {
-        case LOAD_ITEMS:
-            console.log('load items actions');
+        case SET_FILTER:
+            console.log('filter set');
             return state;
         default:
             return state;
