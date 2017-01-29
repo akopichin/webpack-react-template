@@ -3,6 +3,7 @@
     "build": "webpack"
   },
   "devDependencies": {
+    "@types/bluebird": "^3.0.37",
     "@types/eventemitter3": "^1.2.0",
     "@types/lodash": "^4.14.47",
     "@types/pure-render-decorator": "^0.2.27",
@@ -34,9 +35,13 @@
     "webpack-dev-server": "^1.16.2"
   },
   "dependencies": {
+    "bluebird": "^3.4.7",
     "lodash": "^4.17.4",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
-    "react-redux": "^5.0.1"
+    "react-redux": "^5.0.1",
+    "redux-thunk": "^2.2.0",
+    "superagent": "^3.4.1",
+    "superagent-bluebird-promise": "^4.1.0"
   }
 }

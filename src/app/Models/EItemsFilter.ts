@@ -1,3 +1,4 @@
 export enum EItemsFilter {
-    ALL = <any> 'ALL'
+    ALL = <any> 'ALL',
+    FAVORITE = <any> 'FAVORITE'
 }
