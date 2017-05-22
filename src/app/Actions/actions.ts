@@ -19,10 +19,6 @@ class AppActionsClass implements IAppActions {
             type: LOAD_ITEMS,
             filter
         });
-        dispatch({
-            type: 'OK',
-            filter
-        });
     }
 }
 

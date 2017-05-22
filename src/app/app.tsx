@@ -1,13 +1,11 @@
 import * as React from 'react';
 import * as ReactDOM from "react-dom";
+import { Provider } from 'react-redux'
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import {appStore} from './Store';
 import {AppActions} from './Actions/actions';
 //import {EItemsFilter} from './Models/EItemsFilter';
-
-interface IProps {
-    name: string;
-}
 
 console.log(appStore.getState());
 
@@ -17,13 +15,19 @@ appStore.subscribe(() =>
 
 appStore.dispatch(AppActions.loadList());
 
-class Hello extends React.Component<IProps, void> {
-  render() {
-    return <div>Hello, {this.props.name}</div>;
-  }
+class Hello extends React.Component<void, void> {
+    render() {
+        return (
+            <div>Hello</div>
+        )
+    }
 }
 
 ReactDOM.render(
-  <Hello name="World" />,
-  document.getElementById("app")
+    <Provider store={appStore}>
+        <Router>
+            <Route component={Hello} />
+        </Router>
+    </Provider>,
+    document.getElementById("app")
 );

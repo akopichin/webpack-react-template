@@ -71,6 +71,7 @@ module.exports = {
         modulesDirectories: ['node_modules'],
         extensions:         ['', '.js', '.jsx', '.ts', '.tsx']
     }
+
 }
 
 if (NODE_ENV == 'production') {
