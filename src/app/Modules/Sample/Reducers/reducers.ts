@@ -1,6 +1,8 @@
 /**
  * Reducers
  */
+import {SUCCESS} from 'app/Core/Utils/ReducerUtils';
+
 import {LOAD_ITEMS, SET_FILTER} from '../Actions/actionTypes';
 import {IItem} from '../Models';
 import {EItemsFilter} from '../Models/EItemsFilter';
@@ -13,6 +15,9 @@ function items (state:IItem[], action) {
     switch (action.type) {
         case LOAD_ITEMS:
             console.log('load items actions');
+            return state;
+        case `${LOAD_ITEMS}${SUCCESS}`:
+            console.log('load success', action);
             return state;
         case 'OK':
             console.log('OK actions');

@@ -5,7 +5,7 @@ import {
 } from 'redux';
 import thunk from 'redux-thunk';
 
-import {items, filter} from './Reducers/reducers';
+import {items, filter} from './Modules/Sample/Reducers/reducers';
 
 const rootReducer = combineReducers({
     items,
