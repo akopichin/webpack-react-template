@@ -41,6 +41,8 @@
     "react-dom": "^15.4.2",
     "react-redux": "^5.0.1",
     "react-router-dom": "^4.1.1",
+    "redux-actions": "2.0.3",
+    "redux-promise-middleware": "4.3.0",
     "redux-thunk": "^2.2.0",
     "superagent": "^3.4.1",
     "superagent-bluebird-promise": "^4.1.0"

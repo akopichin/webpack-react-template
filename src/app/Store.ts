@@ -4,15 +4,32 @@ import {
     applyMiddleware,
 } from 'redux';
 import thunk from 'redux-thunk';
+import promiseMiddleware from 'redux-promise-middleware';
+//import {BEGIN, SUCCESS, FAILURE} from 'app/Core/Utils/ReducerUtils';
 
-import {items, filter} from './Modules/Sample/Reducers/reducers';
+import {items} from './Modules/Sample/Reducers/reducers';
 
 const rootReducer = combineReducers({
-    items,
-    filter
+    items
 });
 
-const appStore = createStore(rootReducer, applyMiddleware(thunk));
+// @todo remove in prod, add condition.
+const logger = () => next => action => {
+    console.log('dispatched:', action.type);
+    let result = next(action);
+    return result;
+};
+
+const appStore = createStore(
+    rootReducer,
+    applyMiddleware(
+        thunk,
+        promiseMiddleware({
+            promiseTypeSuffixes: ['BEGIN', 'SUCCESS', 'FAILURE']
+        }),
+        logger
+    )
+);
 
 export {
     appStore

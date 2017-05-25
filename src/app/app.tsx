@@ -4,27 +4,14 @@ import { Provider } from 'react-redux'
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import {appStore} from './Store';
-import {AppActions} from './Modules/Sample/Actions/actions';
-//import {EItemsFilter} from './Models/EItemsFilter';
+//import {AppActions} from './Modules/Sample/Actions/actions';
+import {Hello} from 'app/Modules/Sample/Components/Hello';
 
 console.log(appStore.getState());
 
 appStore.subscribe(() =>
     console.log('new state:', appStore.getState())
 );
-
-appStore.dispatch(AppActions.loadList());
-
-// example thunk
-appStore.dispatch(AppActions.loadListAsync());
-
-class Hello extends React.Component<void, void> {
-    render() {
-        return (
-            <div>Hello</div>
-        )
-    }
-}
 
 ReactDOM.render(
     <Provider store={appStore}>
