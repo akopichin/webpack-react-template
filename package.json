@@ -1,11 +1,11 @@
 {
   "scripts": {
-    "build": "webpack"
+    "build": "webpack",
+    "start": "webpack-dev-server --progress --colors --watch"
   },
   "devDependencies": {
     "@types/bluebird": "^3.0.37",
     "@types/eventemitter3": "^1.2.0",
-    "@types/lodash": "^4.14.47",
     "@types/pure-render-decorator": "^0.2.27",
     "@types/react": "0.0.0",
     "@types/react-addons-css-transition-group": "^0.14.19",
@@ -35,8 +35,10 @@
     "webpack-dev-server": "^1.16.2"
   },
   "dependencies": {
+    "@types/lodash": "^4.14.50",
     "bluebird": "^3.4.7",
     "lodash": "^4.17.4",
+    "node-sass": "^4.5.3",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-redux": "^5.0.1",

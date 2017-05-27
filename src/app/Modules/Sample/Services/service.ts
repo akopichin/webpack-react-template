@@ -1,12 +1,16 @@
 import * as Promise from 'bluebird';
-import request from 'superagent-bluebird-promise';
+//import request from 'superagent-bluebird-promise';
 
 import {IAppApi} from '../Models';
-//import {IItem} from '../Models/IItem';
 
 class AppApiClass implements IAppApi {
     loadList(): Promise<any> {
-        return request.get('http://google.com').promise();
+        return new Promise(resolve => {
+            setTimeout(() => {
+                resolve('finish');
+            }, 5000);
+        });
+        //return request.get('http://google.com').promise();
     }
 }
 

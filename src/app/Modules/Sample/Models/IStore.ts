@@ -1,5 +1,8 @@
 import {IItem} from './IItem';
 
 export interface IStore {
-    items: IItem[]
+    sample: {
+        items: IItem[],
+        text: string
+    }
 }

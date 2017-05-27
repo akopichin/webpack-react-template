@@ -1,3 +1,4 @@
+import * as _ from 'lodash';
 import {handleActions} from 'redux-actions';
 
 /**
@@ -8,22 +9,20 @@ import {SUCCESS} from 'app/Core/Utils/ReducerUtils';
 import {LOAD_ITEMS} from '../Actions/actionTypes';
 import {IItem} from '../Models';
 
-const initialItemsState:IItem[] = [];
+const initialItemsState: { items: IItem[], text: string } = {items: [], text: ''};
 
-const items = handleActions({
+const sample = handleActions({
 
     [`${LOAD_ITEMS}${SUCCESS}`]: (state, action) => {
         console.log('load success', action.payload);
-        return state;
-    },
+        let newState = _.assign({}, state);
+        newState.text = action.payload;
 
-    [`${LOAD_ITEMS}_FULFILLED`]: (state, action) => {
-        console.log('load success', action.payload);
-        return state;
+        return newState;
     }
 
 }, initialItemsState);
 
 export {
-    items
+    sample
 }

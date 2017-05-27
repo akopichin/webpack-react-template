@@ -5,12 +5,11 @@ import {
 } from 'redux';
 import thunk from 'redux-thunk';
 import promiseMiddleware from 'redux-promise-middleware';
-//import {BEGIN, SUCCESS, FAILURE} from 'app/Core/Utils/ReducerUtils';
 
-import {items} from './Modules/Sample/Reducers/reducers';
+import {sample} from './Modules/Sample/Reducers/reducers';
 
 const rootReducer = combineReducers({
-    items
+    sample
 });
 
 // @todo remove in prod, add condition.
