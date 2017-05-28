@@ -8,12 +8,9 @@ import {AppActionsClass, IAppActions} from '../Actions/actions';
 import {AppApi} from '../Services/service';
 import {IStore} from '../Models/IStore';
 
-interface IMappedProps {
-    text: string;
-}
-
-interface IProps extends IMappedProps {
+interface IProps {
     actions: IAppActions
+    text: string;
 }
 
 class HelloComponent extends React.Component<IProps, void> {
@@ -30,14 +27,14 @@ class HelloComponent extends React.Component<IProps, void> {
     }
 }
 
+function mapStateToProps (state: IStore) {
+    return {text: state.sample.text};
+}
+
 function mapDispatchToProps (dispatch: Dispatch<IAction>): {actions: IAppActions} {
     const actions = new AppActionsClass(AppApi, dispatch);
 
     return {actions};
 }
 
-function mapStateToProps (state: IStore): IMappedProps {
-    return {text: state.sample.text};
-}
-
-export const Hello = connect<IMappedProps, any, {}>(mapStateToProps, mapDispatchToProps)(HelloComponent);
+export const Hello = connect<{}, {}, {}>(mapStateToProps, mapDispatchToProps)(HelloComponent);

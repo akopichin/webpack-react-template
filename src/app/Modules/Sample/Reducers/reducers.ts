@@ -1,4 +1,3 @@
-import * as _ from 'lodash';
 import {handleActions} from 'redux-actions';
 
 /**
@@ -15,8 +14,8 @@ const sample = handleActions({
 
     [`${LOAD_ITEMS}${SUCCESS}`]: (state, action) => {
         console.log('load success', action.payload);
-        let newState = _.assign({}, state);
-        newState.text = action.payload;
+        let newState = {...state};
+        newState.text = action.payload.origin || '...';
 
         return newState;
     }

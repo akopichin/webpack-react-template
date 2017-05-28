@@ -1,5 +1,3 @@
-import * as Promise from 'bluebird';
-
 import {LOAD_ITEMS} from './actionTypes';
 import {IAppApi} from '../Models/IAppApi';
 
@@ -17,12 +15,7 @@ class AppActionsClass implements IAppActions {
         return (dispatch => {
             return dispatch({
                 type: LOAD_ITEMS,
-                payload: new Promise(resolve => {
-                    this.service.loadList();
-                    setTimeout(() => {
-                        resolve('World');
-                    }, 5000);
-                })
+                payload: this.service.loadList()
             });
         })(this.dispatch)
     }

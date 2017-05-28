@@ -1,5 +1,4 @@
 import * as Promise from 'bluebird';
-//import {IItem} from './IItem';
 
 /**
  * App's api interface
