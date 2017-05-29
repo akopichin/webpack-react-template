@@ -1,4 +1,3 @@
-import * as Promise from 'bluebird';
 import * as request from 'superagent-bluebird-promise';
 import * as _ from 'lodash';
 

@@ -12,6 +12,7 @@
         "sourceMap": true,
         "stripInternal": true,
         "target": "es5",
+        "lib": ["es5", "dom", "es6", "es2015.promise"],
         "baseUrl": "./src",
         "paths": {
             "*": [
@@ -24,7 +25,8 @@
         ]
     },
     "include": [
-        "src/**/*"
+        "src/**/*",
+        "@types/app.d.ts"
     ],
     "exclude": [
         "node_modules",

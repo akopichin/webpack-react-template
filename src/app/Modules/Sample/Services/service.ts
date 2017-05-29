@@ -1,4 +1,3 @@
-import * as Promise from 'bluebird';
 import {get} from 'app/Core/Utils/RequestUtils';
 
 import {IAppApi} from '../Models';

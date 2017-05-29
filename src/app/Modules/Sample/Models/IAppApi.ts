@@ -1,5 +1,3 @@
-import * as Promise from 'bluebird';
-
 /**
  * App's api interface
  */
