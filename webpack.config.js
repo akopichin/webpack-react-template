@@ -33,7 +33,7 @@ module.exports = {
 		loaders: [
             {
                 test: /\.scss$/,
-                loader: extractCSS.extract(['css','sass'])
+                loader: extractCSS.extract(['css-loader','sass-loader'])
             },
 			{
 				test: /\.jsx?$/,
@@ -65,11 +65,11 @@ module.exports = {
     ],
 
     resolve: {
-        root: [
-            path.join(__dirname, 'src')
+	    modules: [
+            path.join(__dirname, 'src'),
+            'node_modules'
         ],
-        modulesDirectories: ['node_modules'],
-        extensions:         ['', '.js', '.jsx', '.ts', '.tsx']
+        extensions: ['.js', '.jsx', '.ts', '.tsx']
     }
 
 }
