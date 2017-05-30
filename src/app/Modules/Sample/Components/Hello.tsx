@@ -16,7 +16,7 @@ interface IProps {
 class HelloComponent extends React.Component<IProps, void> {
     render() {
         const {text} = this.props;
-        const name = text || '';
+        const name = text || 'guest';
 
         return (
             <div onClick={() => { this.props.actions.loadListAsync(); }}>
@@ -37,4 +37,4 @@ function mapDispatchToProps (dispatch: Dispatch<IAction>): {actions: IAppActions
     return {actions};
 }
 
-export const Hello = connect<{}, {}, {}>(mapStateToProps, mapDispatchToProps)(HelloComponent);
+export const Hello = connect<{text: string}, {actions: IAppActions}, {}>(mapStateToProps, mapDispatchToProps)(HelloComponent);

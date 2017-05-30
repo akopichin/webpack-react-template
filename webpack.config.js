@@ -33,8 +33,6 @@ module.exports = {
 		loaders: [
             {
                 test: /\.scss$/,
-                // "style-loader", "css-loader", 
-                //loader: ExtractTextPlugin('style-loader!css-loader!sass-loader')
                 loader: extractCSS.extract(['css','sass'])
             },
 			{
@@ -64,7 +62,6 @@ module.exports = {
             NODE_ENV: JSON.stringify(NODE_ENV)
         }),
         extractCSS
-        //new ExtractTextPlugin('[name].[ext]')
     ],
 
     resolve: {
