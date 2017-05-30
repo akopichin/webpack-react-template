@@ -1,5 +1,5 @@
 import * as request from 'superagent-bluebird-promise';
-import * as _ from 'lodash';
+import {assign, isObject, has, isUndefined} from 'lodash';
 
 interface IRequestOptions {
     responseType?: string;
@@ -15,9 +15,9 @@ interface IRequestParams {
 function getError (response, options) {
     let result;
     const {res} = response;
-    const errorStatus = _.has(res, 'error.status') ? res.error.status : 444;
+    const errorStatus = has(res, 'error.status') ? res.error.status : 444;
 
-    if (!_.isObject(res)) {
+    if (!isObject(res)) {
         // Global error (404 etc).
         result = {
             errorCode: response.status != null ? response.status : -1,
@@ -27,8 +27,8 @@ function getError (response, options) {
             fields: [],
             checks: []
         };
-    } else if (_.isObject(res.body) && !_.isUndefined(res.body.errorCode)) {
-        result = _.assign(res.body, {errorStatus: errorStatus});
+    } else if (isObject(res.body) && !isUndefined(res.body.errorCode)) {
+        result = assign(res.body, {errorStatus: errorStatus});
     } else {
         // Unknown response
         if (errorStatus == 401) {
@@ -64,7 +64,7 @@ function patchResponse (response, url, params, data = undefined) {
 const get = function (url, params: IRequestParams = {}, options: IRequestOptions = {}) {
     params || (params = Object.create(null));
     // param ts to avoid caching, if ts at params - dont change.
-    params.ts = _.isUndefined(params.ts) ? new Date().getTime() : params.ts;
+    params.ts = isUndefined(params.ts) ? new Date().getTime() : params.ts;
         let req = request
             .get(url)
             .query(params);
