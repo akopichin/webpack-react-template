@@ -1,6 +1,6 @@
 import {get} from 'app/Core/Utils/RequestUtils';
 
-import {IAppApi} from '../Models';
+import {IAppApi} from '../Models/IAppApi';
 
 class AppApiClass implements IAppApi {
     loadList(): Promise<any> {

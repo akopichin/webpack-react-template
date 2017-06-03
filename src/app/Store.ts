@@ -6,7 +6,11 @@ import thunk from 'redux-thunk';
 import promiseMiddleware from 'redux-promise-middleware';
 
 import {getRootReducer} from 'app/Core/rootReducer';
-import {sample} from './Modules/Sample/Reducers/reducers';
+import {sample, initialSampleState} from './Modules/Sample/Reducers/reducers';
+import {ISampleStore} from './Modules/Sample/Models/ISampleStore';
+
+export interface IAppStore extends ISampleStore {
+}
 
 /**
  * Only common reducers should be here.
@@ -15,6 +19,17 @@ import {sample} from './Modules/Sample/Reducers/reducers';
 const rootReducerMap = {
     sample
 };
+
+/**
+ * Initial state of the app.
+ *
+ * @returns {IAppStore} Initial state of the app.
+ */
+const getInitialState: () => IAppStore = () => {
+    return {
+        sample: initialSampleState
+    }
+}
 
 // @todo remove in prod, add condition.
 const logger = () => next => action => {
@@ -25,6 +40,7 @@ const logger = () => next => action => {
 
 const appStore = createStore(
     getRootReducer(rootReducerMap),
+    getInitialState(),
     applyMiddleware(
         thunk,
         promiseMiddleware({

@@ -6,9 +6,9 @@ import {handleActions} from 'redux-actions';
 import {SUCCESS} from 'app/Core/Utils/ReducerUtils';
 
 import {LOAD_ITEMS} from '../Actions/actionTypes';
-import {IItem} from '../Models';
+import {IItem} from '../Models/IItem';
 
-const initialItemsState: { items: IItem[], text: string } = {items: [], text: ''};
+export const initialSampleState: { items: IItem[], text: string } = {items: [], text: ''};
 
 const sample = handleActions({
 
@@ -20,7 +20,7 @@ const sample = handleActions({
         return newState;
     }
 
-}, initialItemsState);
+}, initialSampleState);
 
 export {
     sample

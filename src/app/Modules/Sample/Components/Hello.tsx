@@ -6,7 +6,7 @@ import {IAction} from 'app/Core/Models';
 
 import {AppActionsClass, IAppActions} from '../Actions/actions';
 import {AppApi} from '../Services/service';
-import {IStore} from '../Models/IStore';
+import {ISampleStore} from '../Models/ISampleStore';
 
 interface IProps {
     actions: IAppActions
@@ -27,7 +27,7 @@ class HelloComponent extends React.Component<IProps, void> {
     }
 }
 
-function mapStateToProps (state: IStore) {
+function mapStateToProps (state: ISampleStore) {
     return {text: state.sample.text};
 }
 
