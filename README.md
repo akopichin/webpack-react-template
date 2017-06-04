@@ -9,6 +9,7 @@ Here is my simply react/redux starter with few technologies.
 * React Router
 * Redux + replace reducers
 * Webpack
+* Babel
 * SASS
 
 ### todo
