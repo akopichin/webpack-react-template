@@ -2,39 +2,51 @@ import * as React from 'react';
 import {Dispatch} from 'redux';
 import {connect} from 'react-redux';
 
-import {IAction} from 'app/Core/Models';
+import {IAction, IAsyncData} from 'app/Core/Models';
+import {EProcessStatus} from 'app/Core/Enums';
 
-import {AppActionsClass, IAppActions} from '../Actions/actions';
-import {AppApi} from '../Services/service';
-import {ISampleStore} from '../Models/ISampleStore';
+import {SampleActions, ISampleActions} from '../Actions/actions';
+import {SampleApi} from '../Services/service';
+import {ISampleStoreBranch} from '../Models/ISampleStoreBranch';
 
 interface IProps {
-    actions: IAppActions
-    text: string;
+    actions: ISampleActions
+    text: IAsyncData<string>;
 }
 
 class HelloComponent extends React.Component<IProps, void> {
     render() {
         const {text} = this.props;
-        const name = text || 'guest';
+        let message = '';
+
+        switch (text.status) {
+            case EProcessStatus.SUCCESS:
+                message = text.data;
+                break;
+            case EProcessStatus.RUNNING:
+                message = 'Running';
+                break;
+            case EProcessStatus.IDLE:
+                message = '...';
+                break;
+        }
 
         return (
             <div onClick={() => { this.props.actions.loadListAsync(); }}>
-                Hello {name}!
+                {message}
             </div>
         )
-
     }
 }
 
-function mapStateToProps (state: ISampleStore) {
+function mapStateToProps (state: ISampleStoreBranch) {
     return {text: state.sample.text};
 }
 
-function mapDispatchToProps (dispatch: Dispatch<IAction>): {actions: IAppActions} {
-    const actions = new AppActionsClass(AppApi, dispatch);
+function mapDispatchToProps (dispatch: Dispatch<IAction>): {actions: ISampleActions} {
+    const actions = new SampleActions(SampleApi, dispatch);
 
     return {actions};
 }
 
-export const Hello = connect<{text: string}, {actions: IAppActions}, {}>(mapStateToProps, mapDispatchToProps)(HelloComponent);
+export const Hello = connect<{text: IAsyncData<string>}, {actions: ISampleActions}, {}>(mapStateToProps, mapDispatchToProps)(HelloComponent);

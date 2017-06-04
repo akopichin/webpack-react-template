@@ -1,15 +1,15 @@
 import {get} from 'app/Core/Utils/RequestUtils';
 
-import {IAppApi} from '../Models/IAppApi';
+import {ISampleApi} from '../Models/ISampleApi';
 
-class AppApiClass implements IAppApi {
+class SampleApiClass implements ISampleApi {
     loadList(): Promise<any> {
         return get('https://httpbin.org/get');
     }
 }
 
-const AppApi = new AppApiClass();
+const SampleApi = new SampleApiClass();
 
 export {
-    AppApi
+    SampleApi
 }

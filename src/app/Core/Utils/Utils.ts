@@ -1,7 +1,7 @@
 /**
  * Utils for emit async redux actions.
  */
-import * as Promise from 'bluebird';
+import {} from 'app/Core/Models';
 
 /**
  * @TODO add props here.

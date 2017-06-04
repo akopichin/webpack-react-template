@@ -1,7 +1,7 @@
 /**
- * App's api interface
+ * Sample's api interface
  */
-export interface IAppApi {
+export interface ISampleApi {
     /**
      * Loads items list.
      *

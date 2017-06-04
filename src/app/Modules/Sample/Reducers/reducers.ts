@@ -3,19 +3,45 @@ import {handleActions} from 'redux-actions';
 /**
  * Reducers
  */
-import {SUCCESS} from 'app/Core/Utils/ReducerUtils';
+import {BEGIN, SUCCESS} from 'app/Core/Utils/ReducerUtils';
+import {EProcessStatus} from 'app/Core/Enums';
 
 import {LOAD_ITEMS} from '../Actions/actionTypes';
-import {IItem} from '../Models/IItem';
+import {ISampleStoreBranch} from '../Models/ISampleStoreBranch';
 
-export const initialSampleState: { items: IItem[], text: string } = {items: [], text: ''};
+export const initialSampleState: ISampleStoreBranch = { sample:
+    { items: [], text: {
+        status: EProcessStatus.IDLE,
+        data: '',
+        errors: null
+    }}
+};
 
 const sample = handleActions({
 
+    [`${LOAD_ITEMS}${BEGIN}`]: (state, action) => {
+        console.log('load begin', action.payload);
+        let newState = {
+            ...state,
+            text: {
+                ...state.text,
+                status: EProcessStatus.RUNNING
+            }
+        };
+
+        return newState;
+    },
+
     [`${LOAD_ITEMS}${SUCCESS}`]: (state, action) => {
         console.log('load success', action.payload);
-        let newState = {...state};
-        newState.text = action.payload.origin || '...';
+        let newState = {
+            ...state,
+            text: {
+                ...state.text,
+                data: action.payload.origin || '...',
+                status: EProcessStatus.SUCCESS
+            }
+        };
 
         return newState;
     }

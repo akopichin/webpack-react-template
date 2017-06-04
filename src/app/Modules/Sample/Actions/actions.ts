@@ -1,12 +1,12 @@
 import {LOAD_ITEMS} from './actionTypes';
-import {IAppApi} from '../Models/IAppApi';
+import {ISampleApi} from '../Models/ISampleApi';
 
-export interface IAppActions {
+export interface ISampleActions {
     loadListAsync: Function;
 }
 
-class AppActionsClass implements IAppActions {
-    constructor(private service: IAppApi, private dispatch) {}
+class SampleActions implements ISampleActions {
+    constructor(private service: ISampleApi, private dispatch) {}
 
     /**
      * Load items to show
@@ -21,8 +21,6 @@ class AppActionsClass implements IAppActions {
     }
 }
 
-//const AppActions = new AppActionsClass(AppApi, );
-
 export {
-    AppActionsClass
+    SampleActions
 }

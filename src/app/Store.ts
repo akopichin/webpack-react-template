@@ -7,9 +7,9 @@ import promiseMiddleware from 'redux-promise-middleware';
 
 import {getRootReducer} from 'app/Core/rootReducer';
 import {sample, initialSampleState} from './Modules/Sample/Reducers/reducers';
-import {ISampleStore} from './Modules/Sample/Models/ISampleStore';
+import {ISampleStoreBranch} from './Modules/Sample/Models/ISampleStoreBranch';
 
-export interface IAppStore extends ISampleStore {
+export interface IAppStore extends ISampleStoreBranch {
 }
 
 /**
@@ -27,7 +27,7 @@ const rootReducerMap = {
  */
 const getInitialState: () => IAppStore = () => {
     return {
-        sample: initialSampleState
+        ...initialSampleState
     }
 }
 
