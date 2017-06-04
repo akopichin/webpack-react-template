@@ -12,6 +12,17 @@ Here is my simply react/redux starter with few technologies.
 * Babel
 * SASS
 
+### install
+
+```
+git clone https://github.com/akopichin/webpack-react-template
+cd webpack-react-template/
+npm i
+npm run build
+// to run the server
+npm run start
+```
+
 ### todo
 * Async module loading
 
