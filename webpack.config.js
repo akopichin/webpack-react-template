@@ -58,6 +58,14 @@ module.exports = {
 	},
 
     plugins: [
+        new webpack.optimize.CommonsChunkPlugin({
+            name: "vendors",
+            // move all node_modules to vendors bundle.
+            minChunks: function (module) {
+                return module.context && module.context.indexOf('node_modules') !== -1;
+            },
+            filename: "vendors.bundle.js"
+        }),
         new webpack.DefinePlugin({
             NODE_ENV: JSON.stringify(NODE_ENV)
         }),
