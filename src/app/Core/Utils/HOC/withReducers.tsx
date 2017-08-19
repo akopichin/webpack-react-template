@@ -1,21 +1,24 @@
+/*
 import * as React from 'react';
 import {Store} from 'redux';
 import {connect} from 'react-redux';
 
 import {getRootReducer, isReplaceNeeded} from 'app/Core/rootReducer';
+*/
 
 /**
  * Redux store from context.
  *
  * @prop {Store} store Redux store.
- */
 interface IContext {
     store: Store<Object>;
 }
+ */
 
 /**
  * HOC for dynamically add reducers.
  */
+/*
 export function withReducers<TProps>(Component, reducers) {
     class WithReducersComponent extends React.Component<TProps, void> {
         static contextTypes = {
@@ -40,3 +43,4 @@ export function withReducers<TProps>(Component, reducers) {
 
     return WithReducers;
 }
+*/

@@ -10,11 +10,14 @@ import {SampleApi} from '../Services/service';
 import {ISampleStoreBranch} from '../Models/ISampleStoreBranch';
 
 interface IProps {
-    actions: ISampleActions
     text: IAsyncData<string>;
 }
 
-class HelloComponent extends React.Component<IProps, void> {
+interface IDispatchProps {
+    actions: ISampleActions
+}
+
+class HelloComponent extends React.Component<IProps & IDispatchProps, {}> {
     render() {
         const {text} = this.props;
         let message = '';
@@ -49,4 +52,4 @@ function mapDispatchToProps (dispatch: Dispatch<IAction>): {actions: ISampleActi
     return {actions};
 }
 
-export const Hello = connect<{text: IAsyncData<string>}, {actions: ISampleActions}, {}>(mapStateToProps, mapDispatchToProps)(HelloComponent);
+export const Hello = connect<IProps, IDispatchProps, {}>(mapStateToProps, mapDispatchToProps)(HelloComponent);
