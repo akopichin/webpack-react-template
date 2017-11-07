@@ -19,6 +19,7 @@ interface IDispatchProps {
 
 class HelloComponent extends React.Component<IProps & IDispatchProps, {}> {
     render() {
+        const {actions} = this.props;
         const {text} = this.props;
         let message = '';
 
@@ -35,7 +36,7 @@ class HelloComponent extends React.Component<IProps & IDispatchProps, {}> {
         }
 
         return (
-            <div onClick={() => { this.props.actions.loadListAsync(); }}>
+            <div onClick={() => { actions.loadListAsync(); }}>
                 {message}
             </div>
         )
