@@ -8,8 +8,9 @@ import promiseMiddleware from 'redux-promise-middleware';
 import {getRootReducer} from 'app/Core/rootReducer';
 import {sample, initialSampleState} from './Modules/Sample/Reducers/reducers';
 import {ISampleStoreBranch} from './Modules/Sample/Models/ISampleStoreBranch';
+import {IExampleStoreBranch} from './Modules/Example/Models/IExampleStoreBranch';
 
-export interface IAppStore extends ISampleStoreBranch {
+export interface IAppStore extends ISampleStoreBranch, IExampleStoreBranch {
 }
 
 /**
@@ -26,9 +27,7 @@ const rootReducerMap = {
  * @returns {IAppStore} Initial state of the app.
  */
 const getInitialState: () => IAppStore = () => {
-    return {
-        ...initialSampleState
-    }
+    return {...initialSampleState}
 }
 
 // @todo remove in prod, add condition.
