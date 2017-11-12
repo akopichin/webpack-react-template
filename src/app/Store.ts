@@ -27,7 +27,7 @@ const rootReducerMap = {
  * @returns {IAppStore} Initial state of the app.
  */
 const getInitialState: () => IAppStore = () => {
-    return {...initialSampleState}
+    return initialSampleState
 }
 
 // @todo remove in prod, add condition.
