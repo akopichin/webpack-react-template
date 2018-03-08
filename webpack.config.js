@@ -13,7 +13,7 @@ module.exports = {
 	context: path.resolve(__dirname, 'src'),
 
 	entry: {
-		'app': ['babel-polyfill', './app/app', './styles/app.scss']
+		'app': ['./app/app', './styles/app.scss']
 	},
 
 	output: {
@@ -21,13 +21,13 @@ module.exports = {
 		filename: '[name].bundle.js'
 	},
 
-	watch: NODE_ENV === 'development',
+	watch: false, //NODE_ENV === 'development',
 
     watchOptions: {
         aggregateTimeout: 100
     },
 
-	devtool: NODE_ENV === 'development' ? 'source-map' : null,
+	devtool: NODE_ENV === 'development' ? 'cheap-eval-source-map' : null,
 
 	module: {
 		loaders: [
@@ -35,6 +35,7 @@ module.exports = {
                 test: /\.scss$/,
                 loader: extractCSS.extract(['css-loader','sass-loader'])
             },
+            /*
 			{
 				test: /\.jsx?$/,
 				loader: 'babel',
@@ -44,10 +45,12 @@ module.exports = {
 					plugins: ['transform-runtime'],
 					presets: ['es2015', 'stage-0', 'react']
 				}
-			},
+            },
+            */
             {
                 test: /\.tsx?$/,
                 loader: "ts-loader",
+				include: path.resolve(__dirname, 'src'),
                 exclude: /node_modules/
             },
             {

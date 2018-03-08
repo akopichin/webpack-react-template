@@ -7,7 +7,7 @@ import {BEGIN, SUCCESS} from 'app/Core/Utils/ReducerUtils';
 import {EProcessStatus} from 'app/Core/Enums';
 
 import {LOAD_ITEMS} from '../Actions/actionTypes';
-import {ISampleStoreBranch} from '../Models/ISampleStoreBranch';
+import {ISampleStoreBranch, ISampleStore} from '../Models/ISampleStoreBranch';
 
 export const initialSampleState: ISampleStoreBranch = {
     sample: {
@@ -20,7 +20,7 @@ export const initialSampleState: ISampleStoreBranch = {
     }
 };
 
-const sample = handleActions({
+const sample = handleActions<ISampleStore, any>({
 
     [`${LOAD_ITEMS}${BEGIN}`]: (state, action) => {
         console.log('load begin', action.payload);
@@ -49,7 +49,7 @@ const sample = handleActions({
         return newState;
     }
 
-}, initialSampleState);
+}, initialSampleState as any);
 
 export {
     sample

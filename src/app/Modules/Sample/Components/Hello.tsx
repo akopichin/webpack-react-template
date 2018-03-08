@@ -33,7 +33,7 @@ class HelloComponent extends React.Component<IStateProps & IDispatchProps, {}> {
                 message = 'Running';
                 break;
             case EProcessStatus.IDLE:
-                message = '...';
+                message = '.|.';
                 break;
         }
 

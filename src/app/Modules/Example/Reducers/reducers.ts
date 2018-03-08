@@ -11,7 +11,7 @@ export const initialExampleState: IExampleStore = {
     hello: 'Hello there'
 };
 
-const example = handleActions({
+const example = handleActions<IExampleStore, any>({
 
     [`${EXAMPLE_ACTION}`]: (state, action) => {
         console.log('hello', action.payload);
