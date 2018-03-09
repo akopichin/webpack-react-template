@@ -2,12 +2,12 @@ import * as React from 'react';
 import {Dispatch} from 'redux';
 import {connect} from 'react-redux';
 
-import {IAction, IAsyncData} from 'app/Core/Models';
-import {EProcessStatus} from 'app/Core/Enums';
+import {IAction, IAsyncData} from 'Core/Models';
+import {EProcessStatus} from 'Core/Enums';
 import {SampleActions, ISampleActions} from '../Actions/actions';
 import {SampleApi} from '../Services/service';
 import {ISampleStoreBranch} from '../Models/ISampleStoreBranch';
-import {Example} from 'app/Modules/Example/Components/Example';
+import {Example} from 'Modules/Example/Components/Example';
 
 interface IStateProps {
     text: IAsyncData<string>;

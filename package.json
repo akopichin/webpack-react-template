@@ -1,7 +1,9 @@
 {
   "scripts": {
-    "build": "webpack",
-    "start": "webpack-dev-server --progress --colors --watch"
+    "prebuild": "rimraf dist/",
+    "prestart": "rimraf dist/",
+    "build": "webpack -p",
+    "start": "webpack-dev-server --hot --inline"
   },
   "devDependencies": {
     "@types/bluebird": "^3.5.8",
@@ -19,6 +21,7 @@
     "@types/react-router-dom": "^4.2.1",
     "@types/redux-actions": "^2.2.2",
     "@types/redux-thunk": "^2.1.0",
+    "autoprefixer": "^8.1.0",
     "babel-cli": "^6.18.0",
     "babel-core": "^6.21.0",
     "babel-loader": "7.1.2",
@@ -30,18 +33,23 @@
     "babel-preset-stage-0": "^6.16.0",
     "css-loader": "^0.26.1",
     "extract-text-webpack-plugin": "^3.*",
+    "file-loader": "^1.1.11",
+    "node-sass": "^4.5.3",
+    "postcss-loader": "^2.1.1",
+    "resolve-url-loader": "^2.3.0",
+    "rimraf": "^2.6.2",
     "sass-loader": "latest",
     "style-loader": "^0.13.1",
     "ts-loader": "^2.3.3",
     "typescript": "^2.6.1",
     "webpack": "3.*",
-    "webpack-dev-server": "^2.4.5"
+    "webpack-dev-server": "^2.4.5",
+    "webpack-merge": "^4.1.2"
   },
   "dependencies": {
     "bluebird": "^3.4.7",
     "eventemitter3": "^2.0.3",
     "lodash": "^4.17.4",
-    "node-sass": "^4.5.3",
     "prop-types": "^15.6.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",

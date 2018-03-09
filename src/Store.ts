@@ -5,7 +5,7 @@ import {
 import thunk from 'redux-thunk';
 import promiseMiddleware from 'redux-promise-middleware';
 
-import {getRootReducer} from 'app/Core/rootReducer';
+import {getRootReducer} from 'Core/rootReducer';
 import {sample, initialSampleState} from './Modules/Sample/Reducers/reducers';
 import {ISampleStoreBranch} from './Modules/Sample/Models/ISampleStoreBranch';
 import {IExampleStoreBranch} from './Modules/Example/Models/IExampleStoreBranch';
