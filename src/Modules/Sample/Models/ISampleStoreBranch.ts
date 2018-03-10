@@ -1,4 +1,4 @@
-import {IAsyncData} from 'app/Core/Models';
+import {IAsyncData} from 'Core/Models';
 import {IItem} from './IItem';
 
 export interface ISampleStoreBranch {

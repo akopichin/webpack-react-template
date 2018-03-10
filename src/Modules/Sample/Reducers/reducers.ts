@@ -3,8 +3,8 @@ import {handleActions} from 'redux-actions';
 /**
  * Reducers
  */
-import {BEGIN, SUCCESS} from 'app/Core/Utils/ReducerUtils';
-import {EProcessStatus} from 'app/Core/Enums';
+import {BEGIN, SUCCESS} from 'Core/Utils/ReducerUtils';
+import {EProcessStatus} from 'Core/Enums';
 
 import {LOAD_ITEMS} from '../Actions/actionTypes';
 import {ISampleStoreBranch, ISampleStore} from '../Models/ISampleStoreBranch';

@@ -2,7 +2,7 @@ import * as React from 'react';
 import {Store} from 'redux';
 import {connect} from 'react-redux';
 import * as PropTypes from 'prop-types';
-import {getRootReducer, isReplaceNeeded} from 'app/Core/rootReducer';
+import {getRootReducer, isReplaceNeeded} from 'Core/rootReducer';
 
 /**
  * Redux store from context.

@@ -1,8 +1,8 @@
 import * as React from 'react';
 import {Dispatch} from 'redux';
 import {connect} from 'react-redux';
-import {withReducers} from 'app/Core/Utils/HOC/withReducers';
-import {IAction} from 'app/Core/Models';
+import {withReducers} from 'Core/Utils/HOC/withReducers';
+import {IAction} from 'Core/Models';
 import {ExampleActions, IExampleActions} from '../Actions/actions';
 import {mappedExampleReducers} from '../Reducers/reducers';
 import {IExampleStoreBranch} from '../Models/IExampleStoreBranch';

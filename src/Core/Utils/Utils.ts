@@ -1,7 +1,7 @@
 /**
  * Utils for emit async redux actions.
  */
-import {} from 'app/Core/Models';
+import {} from 'Core/Models';
 
 /**
  * @TODO add props here.
