@@ -17,7 +17,14 @@ interface IDispatchProps {
     actions: ISampleActions
 }
 
-class HelloComponent extends React.Component<IStateProps & IDispatchProps, {}> {
+interface IState {
+    error: boolean;
+}
+
+class HelloComponent extends React.Component<IStateProps & IDispatchProps, IState> {
+
+    state: IState = {error: false};
+
     render() {
         const {actions} = this.props;
         const {text} = this.props;
@@ -37,8 +44,12 @@ class HelloComponent extends React.Component<IStateProps & IDispatchProps, {}> {
                 break;
         }
 
+        if (this.state.error) {
+            throw new Error("Error");
+        }
+
         return (
-            <div onClick={() => { actions.loadListAsync(); }}>
+            <div onClick={() => { this.setState({error: true}); actions.loadListAsync(); }}>
                 {message}
                 <div>
                     {!!exampleVisible && <Example />}

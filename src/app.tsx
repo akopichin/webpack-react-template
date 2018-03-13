@@ -3,6 +3,7 @@ import * as ReactDOM from "react-dom";
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import * as Promise from 'bluebird';
+import {ErrorBoundary} from 'Core/Components/ErrorBoundary';
 
 // Import statics.
 import './assets/index.html';
@@ -23,7 +24,9 @@ appStore.subscribe(() =>
 ReactDOM.render(
     <Provider store={appStore}>
         <Router>
-            <Route component={Hello} />
+            <ErrorBoundary>
+                <Route component={Hello} />
+            </ErrorBoundary>
         </Router>
     </Provider>,
     document.getElementById("app")
