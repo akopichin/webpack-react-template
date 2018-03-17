@@ -69,4 +69,7 @@ function mapDispatchToProps (dispatch: Dispatch<IAction>): {actions: ISampleActi
     return {actions};
 }
 
-export const Hello = connect<IStateProps, IDispatchProps, {}>(mapStateToProps, mapDispatchToProps)(HelloComponent);
+const Hello = connect<IStateProps, IDispatchProps, {}>(mapStateToProps, mapDispatchToProps)(HelloComponent);
+const Async = Hello;
+
+export { Hello, Async };

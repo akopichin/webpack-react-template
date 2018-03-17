@@ -2,6 +2,8 @@ import * as React from 'react';
 
 /**
  * Error component state
+ * @prop {string} error Error text.
+ * @prop {componentStack: string} errorInfo Error stack details.
  */
 interface IState {
     error: string;
@@ -33,6 +35,7 @@ export class ErrorBoundary extends React.Component<{}, IState> {
     render () {
         const {error, errorInfo} = this.state;
 
+        console.log(error);
         return error
             ? (
                 // @todo Setup error layout.

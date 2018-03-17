@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import * as Promise from 'bluebird';
 import {ErrorBoundary} from 'Core/Components/ErrorBoundary';
+import {AsyncComponentLoader} from 'Core/Components/AsyncComponentLoader';
 
 // Import statics.
 import './assets/index.html';
@@ -15,7 +16,6 @@ if (window.Promise === undefined) {
 }
 
 import {appStore} from './Store';
-import {Hello} from 'Modules/Sample/Components/Hello';
 
 appStore.subscribe(() =>
     console.log('new state:', appStore.getState())
@@ -25,7 +25,7 @@ ReactDOM.render(
     <Provider store={appStore}>
         <Router>
             <ErrorBoundary>
-                <Route component={Hello} />
+                <Route component={() => (<AsyncComponentLoader bundle={import(/* webpackChunkName: "Hello" */'Modules/Sample/Components/Hello')} isModal={false}/>)} />
             </ErrorBoundary>
         </Router>
     </Provider>,
