@@ -29,7 +29,8 @@ module.exports = (env, args) => {
             path: appConfig.outputDir,
             publicPath: './',
             filename: 'js/[name].js',
-            hotUpdateChunkFilename: "js/hot/[id].[hash].js"
+            hotUpdateChunkFilename: "js/hot/[id].[hash].js",
+            chunkFilename: !IS_DEV ? 'js/chunks/[id].[name]_[chunkhash].js' : 'js/chunks/[id].[name].js'
         },
         resolve: {
             modules: [
