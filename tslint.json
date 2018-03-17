@@ -1,0 +1,81 @@
+{
+    "jsRules": {
+        "eofline": true,
+        "no-consecutive-blank-lines": true,
+        "no-trailing-whitespace": true,
+        "ordered-imports": [
+            true,
+            {
+                "import-sources-order": "lowercase-first"
+            }
+        ],
+        "quotemark": [
+            true,
+            "single",
+            "jsx-double",
+            "avoid-escape"
+        ]
+    },
+    "rulesDirectory": ["./tslintrules/"],
+    "rules": {
+        "empty-lines-imports": true,
+        "class-name": true,
+        "eofline": true,
+        "indent": [
+            true,
+            "spaces"
+        ],
+        "interface-name": [
+            true,
+            "always-prefix"
+        ],
+        "max-file-line-count": [
+            true,
+            1015
+        ],
+        "no-consecutive-blank-lines": true,
+        "no-construct": true,
+        "no-debugger": true,
+        "no-eval": true,
+        "no-internal-module": true,
+        "no-namespace": false,
+        "no-reference": true,
+        "no-trailing-whitespace": true,
+        "no-var-keyword": true,
+        "ordered-imports": [
+            true,
+            {
+                "import-sources-order": "lowercase-first"
+            }
+        ],
+        "quotemark": [
+            true,
+            "single",
+            "jsx-double",
+            "avoid-escape"
+        ],
+        "triple-equals": [
+            true,
+            "allow-null-check",
+            "allow-undefined-check"
+        ],
+        "typedef-whitespace": [
+            true,
+            {
+                "call-signature": "nospace",
+                "index-signature": "nospace",
+                "parameter": "nospace",
+                "property-declaration": "nospace",
+                "variable-declaration": "nospace"
+            },
+            {
+                "call-signature": "onespace",
+                "index-signature": "onespace",
+                "parameter": "onespace",
+                "property-declaration": "onespace",
+                "variable-declaration": "onespace"
+            }
+        ],
+        "use-isnan": true
+    }
+}

@@ -1,14 +1,5 @@
-import * as React from 'react';
 import {reduce} from 'lodash';
-
-/**
- * standart export.
- *
- * @prop {React.Component} Component.
-export interface IES6ModuleDefaultExport {
-    [index: string]: React.ComponentClass<any>
-}
- */
+import * as React from 'react';
 
 /**
  * Component props interface.

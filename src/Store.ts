@@ -1,14 +1,13 @@
 import {
-    createStore,
     applyMiddleware,
+    createStore,
 } from 'redux';
-import thunk from 'redux-thunk';
 import promiseMiddleware from 'redux-promise-middleware';
-
+import thunk from 'redux-thunk';
 import {getRootReducer} from 'Core/rootReducer';
-import {sample, initialSampleState} from './Modules/Sample/Reducers/reducers';
-import {ISampleStoreBranch} from './Modules/Sample/Models/ISampleStoreBranch';
 import {IExampleStoreBranch} from './Modules/Example/Models/IExampleStoreBranch';
+import {ISampleStoreBranch} from './Modules/Sample/Models/ISampleStoreBranch';
+import {initialSampleState, sample} from './Modules/Sample/Reducers/reducers';
 
 export interface IAppStore extends ISampleStoreBranch, IExampleStoreBranch {
 }
@@ -52,4 +51,3 @@ const appStore = createStore(
 export {
     appStore
 }
-

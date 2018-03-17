@@ -1,13 +1,12 @@
 import * as React from 'react';
-import {Dispatch} from 'redux';
 import {connect} from 'react-redux';
-
-import {IAction, IAsyncData} from 'Core/Models';
+import {Dispatch} from 'redux';
 import {EProcessStatus} from 'Core/Enums';
-import {SampleActions, ISampleActions} from '../Actions/actions';
-import {SampleApi} from '../Services/service';
-import {ISampleStoreBranch} from '../Models/ISampleStoreBranch';
+import {IAction, IAsyncData} from 'Core/Models';
 import {Example} from 'Modules/Example/Components/Example';
+import {ISampleActions, SampleActions} from '../Actions/actions';
+import {ISampleStoreBranch} from '../Models/ISampleStoreBranch';
+import {SampleApi} from '../Services/service';
 
 interface IStateProps {
     text: IAsyncData<string>;
@@ -45,7 +44,7 @@ class HelloComponent extends React.Component<IStateProps & IDispatchProps, IStat
         }
 
         if (this.state.error) {
-            throw new Error("Error");
+            throw new Error('Error');
         }
 
         return (
