@@ -6,6 +6,7 @@
     "start": "webpack-dev-server --hot --inline"
   },
   "devDependencies": {
+    "@types/axios": "^0.14.0",
     "@types/bluebird": "^3.5.8",
     "@types/eventemitter3": "^2.0.2",
     "@types/lodash": "^4.14.73",
@@ -48,6 +49,7 @@
     "webpack-merge": "^4.1.2"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "bluebird": "^3.4.7",
     "eventemitter3": "^2.0.3",
     "lodash": "^4.17.4",

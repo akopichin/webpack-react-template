@@ -1,4 +1,6 @@
-import * as Promise from 'bluebird';
+/* tslint:disable:empty-lines-imports */
+import 'Core/bootstrap';
+
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
@@ -8,11 +10,6 @@ import {ErrorBoundary} from 'Core/Components/ErrorBoundary';
 import './assets/index.html';
 import './styles/app.scss';
 import {appStore} from './Store';
-
-// Polyfill the Promise.
-if (window.Promise === undefined) {
-    window.Promise = Promise;
-}
 
 appStore.subscribe(() =>
     console.log('new state:', appStore.getState())

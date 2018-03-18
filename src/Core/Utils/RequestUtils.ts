@@ -1,5 +1,6 @@
+import axios, {AxiosRequestConfig} from 'axios';
+import {assign, has, isObject, isUndefined} from 'lodash';
 import * as request from 'superagent-bluebird-promise';
-import {assign, isObject, has, isUndefined} from 'lodash';
 
 interface IRequestOptions {
     responseType?: string;
@@ -31,7 +32,7 @@ function getError (response, options) {
         result = assign(res.body, {errorStatus: errorStatus});
     } else {
         // Unknown response
-        if (errorStatus == 401) {
+        if (errorStatus === 401) {
             // 401-й handler.
             if (!(options && options.dontRedirect)) {
                 localStorage.setItem('errorCode', '401');
@@ -87,8 +88,11 @@ const get = function (url, params: IRequestParams = {}, options: IRequestOptions
     });
 
     return promise;
-}
+};
 
-export {
-    get
-}
+export const GET = (url: string, config?: AxiosRequestConfig) => axios.get(url, config);
+export const DELETE = axios.delete;
+export const HEAD = axios.head;
+export const POST = axios.post;
+export const PUT = axios.put;
+export const PATCH = axios.patch;
