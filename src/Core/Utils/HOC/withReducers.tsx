@@ -19,6 +19,8 @@ interface IContext {
 const withReducers = function<TProps>(Component, reducers): React.ComponentClass<TProps> {
     class WithReducersComponent extends React.Component<TProps, {}> {
 
+        static displayName = `WithReducers(${Component.displayName || Component.name || 'Component'})`;
+
         static contextTypes = {
             store: PropTypes.object.isRequired
         };
@@ -37,10 +39,8 @@ const withReducers = function<TProps>(Component, reducers): React.ComponentClass
         }
     }
 
-    const WithReducers = connect<{}, {}, TProps>(null, null)(WithReducersComponent);
-
-    return WithReducers;
-}
+    return connect<{}, {}, TProps>(null, null)(WithReducersComponent);
+};
 
 export {
     withReducers
