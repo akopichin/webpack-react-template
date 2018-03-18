@@ -13,7 +13,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
  * Base webpack config.
  */
 module.exports = (env, args) => {
-    const IS_DEV = environment === 'development' || args.watch;
+    const IS_DEV = environment === 'development' || args.watch || process.argv[1].indexOf('webpack-dev-server') !== -1;;
 
     const extractCSS = new ExtractTextPlugin({
         filename: 'css/[name].css',
