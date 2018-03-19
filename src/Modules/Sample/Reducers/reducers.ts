@@ -5,18 +5,15 @@ import {handleActions} from 'redux-actions';
  */
 import {BEGIN, SUCCESS} from 'Core/Utils/ReducerUtils';
 import {EProcessStatus} from 'Core/Enums';
-
 import {LOAD_ITEMS} from '../Actions/actionTypes';
-import {ISampleStoreBranch, ISampleStore} from '../Models/ISampleStoreBranch';
+import {ISampleStore} from '../Models/ISampleStoreBranch';
 
-export const initialSampleState: ISampleStoreBranch = {
-    sample: {
-        items: [],
-        text: {
-            status: EProcessStatus.IDLE,
-            data: '',
-            errors: null
-        }
+export const initialSampleState: ISampleStore = {
+    items: [],
+    text: {
+        status: EProcessStatus.IDLE,
+        data: '',
+        errors: null
     }
 };
 
@@ -49,7 +46,7 @@ const sample = handleActions<ISampleStore, any>({
         return newState;
     }
 
-}, initialSampleState as any);
+}, initialSampleState);
 
 export {
     sample
