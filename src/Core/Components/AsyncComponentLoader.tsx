@@ -5,11 +5,13 @@ import * as React from 'react';
  * Component props interface.
  * @prop {Promise} bundle.
  * @prop {boolean} isModal Is the loadable component modal.
+ * @prop {Function} componentResolver ComponentResolver.
  * @prop {any} ...restProps.
  */
 interface IAsyncComponentLoaderProps {
     bundle: Promise<any>;
     isModal: boolean;
+    componentResolver: (module: any) => React.Component | React.SFC | React.PureComponent;
     [index: string]: any;
 }
 
@@ -33,11 +35,11 @@ export class AsyncComponentLoader extends React.Component<IAsyncComponentLoaderP
     Component = null;
 
     componentDidMount(): void {
-        const {bundle} = this.props;
+        const {bundle, componentResolver} = this.props;
 
-        this.getComponent(bundle)
+        this.getModule(bundle)
             .then((component) => {
-                this.Component = component;
+                this.Component = componentResolver(component);
                 this.setState({ componentLoaded: true });
             })
             .catch((error) => {
@@ -47,15 +49,10 @@ export class AsyncComponentLoader extends React.Component<IAsyncComponentLoaderP
             });
     }
 
-    getComponent = (bundle: Promise<any>) => new Promise((resolve, reject) => {
+    getModule = (bundle: Promise<any>) => new Promise((resolve, reject) => {
         bundle
             .then((component) => {
-                // In case with export default connect(...)(ReactComponentPage)
-                if (component.__esModule === true && !!component.default) {
-                    resolve(component.default);
-                }
-                // In case of name export we agreed for async load component is exports with 'Async' name.
-                resolve(component.Async);
+                resolve(component);
             }).catch(error => {
                 const notifyEvent = new CustomEvent('notifyEvent', {
                     detail: {
@@ -65,7 +62,7 @@ export class AsyncComponentLoader extends React.Component<IAsyncComponentLoaderP
                 });
                 window.dispatchEvent(notifyEvent);
                 reject(error);
-            })
+            });
     });
 
     renderComponent = () => {

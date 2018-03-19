@@ -20,6 +20,8 @@ interface IState {
     error: boolean;
 }
 
+export type THelloModule = React.Component<IStateProps & IDispatchProps, IState>;
+
 class HelloComponent extends React.Component<IStateProps & IDispatchProps, IState> {
 
     state: IState = {error: false};
