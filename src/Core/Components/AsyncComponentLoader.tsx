@@ -49,19 +49,10 @@ export class AsyncComponentLoader extends React.Component<IAsyncComponentLoaderP
             });
     }
 
-    getModule = (bundle: Promise<any>) => new Promise((resolve, reject) => {
+    getModule = (bundle: Promise<any>) => new Promise((resolve) => {
         bundle
             .then((component) => {
                 resolve(component);
-            }).catch(error => {
-                const notifyEvent = new CustomEvent('notifyEvent', {
-                    detail: {
-                        message: 'Fail to load component',
-                        type: 'error'
-                    }
-                });
-                window.dispatchEvent(notifyEvent);
-                reject(error);
             });
     });
 
